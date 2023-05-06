@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h5 class="text-center"> <strong>Novi album</strong></h5>
+</div>
+<div class="modal-body">
+    <div class="input-group">
+        <input type="text"
+               class="form-control form-control-sm"
+               name="album"
+               id="album"
+               [(ngModel)]="albumName"
+               placeholder='Naziv albuma' />
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button"
+            class="btn btn-outline-success"
+            (click)="activeModal.close(albumName)">Kreiraj</button>
+    <button type="button"
+            class="btn btn-outline-danger"
+            (click)="activeModal.dismiss()">Prekliči</button>
+</div>

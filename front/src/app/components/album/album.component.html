@@ -1,0 +1,33 @@
+<h4>Album {{albumName}}</h4>
+<hr>
+<div class="container">
+    <div class="row g-3">
+        <div class="col-3"
+             style="cursor: pointer;"
+             (click)="file.click()"
+             title="Naloži novo sliko">
+            <i style="height: 100%; width: 100%;"
+               class="fa fa-plus fa-10x border border-primary text-primary d-flex align-items-center justify-content-center"></i>
+            <input type="file"
+                   (change)="onImageUpload($event)"
+                   class="form-control invisible"
+                   multiple
+                   accept="image/*"
+                   id="images"
+                   #file />
+        </div>
+        <div class="col-3 position-relative"
+             *ngFor="let item of images; let i = index">
+            <span class="position-absolute translate-middle badge rounded-pill bg-danger"
+                  (click)="onDeleteImage(item)"
+                  title="Odstrani sliko">
+                <i class="fa fa-trash"></i>
+            </span>
+            <img [src]="item.data?.src"
+                 [lightbox]="i"
+                 title="Pogledaj"
+                 class="border"
+                 style="height: 100%; width: 100%;">
+        </div>
+    </div>
+</div>
